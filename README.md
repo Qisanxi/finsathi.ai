@@ -93,7 +93,7 @@ streamlit run app.py
 
 ## Demo
 
-> Add screenshots or a Loom recording here before submission.
+> Loom Recording Link -- https://www.loom.com/share/930e239636624a08b97eabaed597bee1
 
 Suggested demo flow for judges:
 1. Fill the profile form as a 25-year-old salaried user wanting to save tax
