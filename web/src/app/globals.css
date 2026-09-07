@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+ * FinSaathi palette — hex values only.
+ * NOTE: oklch()/oklab() values in this file get mis-converted by the CSS
+ * minifier for this build target (chroma is dropped), so all theme colors
+ * are authored in hex to keep the emerald/amber palette intact.
+ */
+:root {
+  --radius: 0.75rem;
+  --background: #faf9f4;
+  --foreground: #16241e;
+  --card: #ffffff;
+  --card-foreground: #16241e;
+  --popover: #ffffff;
+  --popover-foreground: #16241e;
+  --primary: #059669;
+  --primary-foreground: #f0fdf6;
+  --secondary: #d9efe5;
+  --secondary-foreground: #1a4d38;
+  --muted: #efede6;
+  --muted-foreground: #5c6b62;
+  --accent: #cdebdd;
+  --accent-foreground: #1a4d38;
+  --destructive: #dc2626;
+  --border: #e3e8e2;
+  --input: #e3e8e2;
+  --ring: #059669;
+  --gold: #f59e0b;
+  --gold-foreground: #92400e;
+  --chart-1: #059669;
+  --chart-2: #f59e0b;
+  --chart-3: #0d9488;
+  --chart-4: #d97706;
+  --chart-5: #4d7c0f;
+  --sidebar: #f4f8f4;
+  --sidebar-foreground: #16241e;
+  --sidebar-primary: #059669;
+  --sidebar-primary-foreground: #f0fdf6;
+  --sidebar-accent: #dcefe7;
+  --sidebar-accent-foreground: #1a4d38;
+  --sidebar-border: #e3e8e2;
+  --sidebar-ring: #059669;
+}
+
+.dark {
+  --background: #0e1613;
+  --foreground: #ecf5ef;
+  --card: #15201b;
+  --card-foreground: #ecf5ef;
+  --popover: #15201b;
+  --popover-foreground: #ecf5ef;
+  --primary: #34d399;
+  --primary-foreground: #0b2419;
+  --secondary: #1c2a24;
+  --secondary-foreground: #d3e8db;
+  --muted: #1c2a24;
+  --muted-foreground: #93a69b;
+  --accent: #233830;
+  --accent-foreground: #d9f0e3;
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.16);
+  --ring: #34d399;
+  --gold: #fbbf24;
+  --gold-foreground: #fde68a;
+  --chart-1: #34d399;
+  --chart-2: #fbbf24;
+  --chart-3: #2dd4bf;
+  --chart-4: #f59e0b;
+  --chart-5: #84cc16;
+  --sidebar: #15201b;
+  --sidebar-foreground: #ecf5ef;
+  --sidebar-primary: #34d399;
+  --sidebar-primary-foreground: #0b2419;
+  --sidebar-accent: #233830;
+  --sidebar-accent-foreground: #d9f0e3;
+  --sidebar-border: rgba(255, 255, 255, 0.12);
+  --sidebar-ring: #34d399;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+}
+
+/* Custom scrollbar for chat and lists */
+.nice-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.nice-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.nice-scroll::-webkit-scrollbar-thumb {
+  background: rgba(5, 150, 105, 0.35);
+  border-radius: 8px;
+}
+.nice-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(5, 150, 105, 0.6);
+}
+
+/* Subtle dot pattern for hero backgrounds */
+.dot-grid {
+  background-image: radial-gradient(
+    rgba(5, 150, 105, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* Markdown table styling inside chat */
+.chat-md table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.875rem;
+}
+.chat-md th,
+.chat-md td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+.chat-md th {
+  background: #eaf3ee;
+  font-weight: 600;
+}
+.dark .chat-md th {
+  background: #1c2a24;
+}
+.chat-md ul,
+.chat-md ol {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+.chat-md ul {
+  list-style: disc;
+}
+.chat-md ol {
+  list-style: decimal;
+}
+.chat-md li {
+  margin: 0.25rem 0;
+}
+.chat-md p {
+  margin: 0.5rem 0;
+}
+.chat-md p:first-child {
+  margin-top: 0;
+}
+.chat-md p:last-child {
+  margin-bottom: 0;
+}
+.chat-md code {
+  background: #f0f4f0;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.35rem;
+  font-size: 0.85em;
+}
+.dark .chat-md code {
+  background: #1c2a24;
+}
+.chat-md h1,
+.chat-md h2,
+.chat-md h3,
+.chat-md h4 {
+  font-weight: 700;
+  margin: 0.75rem 0 0.4rem;
+}
